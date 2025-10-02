@@ -1,0 +1,51 @@
+ecommerce-backend/
+│── cmd/
+│   └── api/               # Entry point (main.go)
+│       └── main.go
+│
+│── internal/              # Project-specific reusable code
+│   ├── user/
+│   │   ├── handler.go     # HTTP handlers (Gin/Fiber)
+│   │   ├── service.go     # Business logic
+│   │   ├── repository.go  # DB queries with GORM/SQL
+│   │   ├── model.go       # DB models
+│   │   ├── dto.go         # Request/response structs
+│   │   └── routes.go      # Feature routes
+│   │
+│   ├── product/
+│   │   ├── handler.go
+│   │   ├── service.go
+│   │   ├── repository.go
+│   │   ├── model.go
+│   │   ├── dto.go
+│   │   └── routes.go
+│   │
+│   ├── order/
+│   │   ├── handler.go
+│   │   ├── service.go
+│   │   ├── repository.go
+│   │   ├── model.go
+│   │   ├── dto.go
+│   │   └── routes.go
+│   │
+│   ├── auth/
+│   │   ├── handler.go
+│   │   ├── service.go
+│   │   ├── jwt.go         # JWT generation/validation
+│   │   └── middleware.go  # Auth middlewares
+│   │
+│   └── common/            # Reusable helpers
+│       ├── config/        # Load env/config
+│       ├── db/            # DB connection setup
+│       ├── response.go    # Standard API responses
+│       ├── error.go       # Error wrapping
+│       └── logger.go      # Centralized logging
+│
+│── pkg/                   # Truly reusable across projects
+│   ├── middleware/        # Example: CORS, Logging, Auth middlewares
+│   ├── utils/             # Utility funcs (string, date, pagination)
+│   └── uploader/          # File upload utils
+│
+│── .gitignore
+│── go.mod
+│── go.sum

@@ -1,0 +1,45 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build artifacts
+*.test
+*.out
+
+# Go build output
+bin/
+*.log
+
+# Go workspace
+go.work
+go.work.sum
+
+# VS Code settings
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.*
+
+# Dependency directories
+vendor/
+
+# Docker
+docker-data/
+pgdata/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded files (keep uploads dir, ignore contents)
+uploads/*
+!uploads/.gitkeep
+
+# Coverage / test reports
+coverage.*
+*.coverprofile
