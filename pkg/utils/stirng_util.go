@@ -2,18 +2,21 @@ package utils
 
 const (
 	// General
-	MsgSuccess            = "Success"
-	MsgOperationCompleted = "Operation completed successfully"
-	MsgFailed             = "Failed"
-	MsgInvalidInput       = "Invalid user input"
-	MsgValidationFailed   = "Validation failed"
-	MsgInternalError      = "Internal server error"
-	MsgBadRequest         = "Bad request"
-	MsgUnauthorized       = "Unauthorized access"
-	MsgForbidden          = "Access forbidden"
-	MsgNotFound           = "Resource not found"
-	MsgConflict           = "Conflict detected"
-	MsgServiceUnavailable = "Service temporarily unavailable"
+	MsgSuccess                = "Success"
+	MsgOperationCompleted     = "Operation completed successfully"
+	MsgFailed                 = "Failed"
+	MsgMissingMandatoryParams = "Missing Mandatory Parameters"
+	MsgInvalidInput           = "Invalid user input"
+	MsgValidationFailed       = "Validation failed"
+	MsgInternalError          = "Internal server error"
+	MsgBadRequest             = "Bad request"
+	MsgUnauthorized           = "Unauthorized access"
+	MsgForbidden              = "Access forbidden"
+	MsgNotFound               = "Resource not found"
+	MsgConflict               = "Conflict detected"
+	MsgServiceUnavailable     = "Service temporarily unavailable"
+	MsgMappingError           = "Mapping error"
+	MsgParsingError           = "Parging error"
 
 	// CRUD
 	MsgCreateSuccess = "Successfully created"
@@ -58,5 +61,4 @@ const (
 	//Pagination
 	MsgNoMoreRecords     = "No more records available"
 	MsgInvalidPagination = "Invalid pagination parameters"
-	MsgMappingError      = "Mapping error"
 )

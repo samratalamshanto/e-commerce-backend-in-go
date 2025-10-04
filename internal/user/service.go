@@ -41,6 +41,10 @@ func (s *UserService) GetAllUsers() ([]User, error) {
 	return s.repo.FindAll()
 }
 
+func (s *UserService) GetAllUsersPagination(offset, limit int) ([]User, error) {
+	return s.repo.FindAllPagination(offset, limit)
+}
+
 func (s *UserService) DeleteUserByID(id uint) (bool, error) {
 	return s.repo.DeleteByID(id)
 }

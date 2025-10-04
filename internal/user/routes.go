@@ -13,7 +13,14 @@ func GetUserRouter(hanler *UserHandler) *UserRouter {
 func (r *UserRouter) RegisterRouter(router *gin.Engine) {
 	userRouter := router.Group("/api/v1/users")
 	{
+		userRouter.GET("/:id", r.handler.GetUserByID)
+		userRouter.GET("/", r.handler.GetAllUser)
+		userRouter.GET("/:offset/:limit", r.handler.GetAllUserPagination)
+
 		userRouter.POST("/", r.handler.CreateUser)
+		userRouter.PUT("/", r.handler.UpdateUser)
+
+		userRouter.DELETE("/:id", r.handler.DeleteUserByID)
 	}
 
 }
