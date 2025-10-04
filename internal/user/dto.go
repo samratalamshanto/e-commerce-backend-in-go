@@ -6,12 +6,20 @@ type CreateUserDTO struct {
 	Name      string `json:"name" binding:"required"`
 	Email     string `json:"email" binding:"email"`
 	Phone     string `json:"phone"`
-	AccountId string `json:"accountId" binding:"required"`
+	AccountID string `json:"accountId" binding:"required"`
+	Password  string `json:"password" binding:"required,min=6"`
+}
+
+type UpdateUserDTO struct {
+	Name      string `json:"name" binding:"required"`
+	Email     string `json:"email" binding:"email"`
+	Phone     string `json:"phone"`
+	AccountID string `json:"accountId" binding:"required"`
 	Password  string `json:"password" binding:"required,min=6"`
 }
 
 type LoginDTO struct {
-	AccountId string `json:"accountId" binding:"required"`
+	AccountID string `json:"accountId" binding:"required"`
 	Password  string `json:"password" binding:"required"`
 }
 
@@ -20,7 +28,7 @@ type UserResponse struct {
 	Name      string    `json:"name"`
 	Email     string    `json:"email"`
 	Phone     string    `json:"phone"`
-	AccountId string    `json:"accountId"`
+	AccountID string    `json:"accountId"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 }

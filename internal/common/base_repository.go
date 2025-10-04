@@ -7,11 +7,11 @@ import (
 // Define interface
 type BaseRepositoryInterface[T any] interface {
 	Save(entity *T) (*T, error)
-	FindById(id uint) (*T, error)
+	FindByID(id uint) (*T, error)
 	FindByIdList(idList []uint) ([]T, error)
 	FindAll() ([]T, error)
 	FindAllPagination(offset, limit int) ([]T, error)
-	DeleteById(id uint) (bool, error)
+	DeleteByID(id uint) (bool, error)
 	DeleteIdList(idList []uint) (bool, error)
 }
 
@@ -44,7 +44,7 @@ func (r *BaseRepository[T]) Save(entity *T) (*T, error) {
 	return entity, nil
 }
 
-func (r *BaseRepository[T]) FindById(id uint) (*T, error) {
+func (r *BaseRepository[T]) FindByID(id uint) (*T, error) {
 	/*
 		wrong: var entity *T means: You created a variable of type *T
 		Its default value is nil. So entity == nil
@@ -95,7 +95,7 @@ func (r *BaseRepository[T]) FindAllPagination(offset, limit int) ([]T, error) {
 	return resultList, nil
 }
 
-func (r *BaseRepository[T]) DeleteById(id uint) (bool, error) {
+func (r *BaseRepository[T]) DeleteByID(id uint) (bool, error) {
 	var entity T //GORM need model reference to determines table name,primary key
 	res := r.DB.Delete(&entity, id)
 	if err := res.Error; err != nil {
