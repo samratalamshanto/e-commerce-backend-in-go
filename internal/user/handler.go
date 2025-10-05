@@ -55,7 +55,7 @@ func (h *UserHandler) GetAllUser(c *gin.Context) {
 		utils.InternalServerErrorResponse(c, mapperErr, utils.MsgMappingError)
 		return
 	}
-	utils.CreatedResponse(c, userResponseList, utils.MsgCreateSuccess)
+	utils.SuccessResponse(c, userResponseList, utils.MsgCreateSuccess)
 }
 
 func (h *UserHandler) GetAllUserPagination(c *gin.Context) {
@@ -71,7 +71,7 @@ func (h *UserHandler) GetAllUserPagination(c *gin.Context) {
 	}
 
 	limitStr := c.Param("limit")
-	if offsetStr == "" {
+	if limitStr == "" {
 		utils.BadRequestResponse(c, utils.MsgMissingMandatoryParams)
 		return
 	}
@@ -92,7 +92,7 @@ func (h *UserHandler) GetAllUserPagination(c *gin.Context) {
 		utils.InternalServerErrorResponse(c, mapperErr, utils.MsgMappingError)
 		return
 	}
-	utils.CreatedResponse(c, userResponseList, utils.MsgCreateSuccess)
+	utils.SuccessResponse(c, userResponseList, utils.MsgCreateSuccess)
 }
 
 func (h *UserHandler) CreateUser(c *gin.Context) {

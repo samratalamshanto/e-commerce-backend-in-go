@@ -1,6 +1,10 @@
 package user
 
-import "github.com/gin-gonic/gin"
+import (
+	"ecom-backend/internal/common"
+
+	"github.com/gin-gonic/gin"
+)
 
 type UserRouter struct {
 	handler *UserHandler
@@ -15,12 +19,21 @@ func (r *UserRouter) RegisterRouter(router *gin.Engine) {
 	{
 		userRouter.GET("/:id", r.handler.GetUserByID)
 		userRouter.GET("/", r.handler.GetAllUser)
-		userRouter.GET("/:offset/:limit", r.handler.GetAllUserPagination)
+		userRouter.GET("/pagination/:offset/:limit", r.handler.GetAllUserPagination)
 
 		userRouter.POST("/", r.handler.CreateUser)
-		userRouter.PUT("/", r.handler.UpdateUser)
+		userRouter.PUT("/:id", r.handler.UpdateUser)
 
 		userRouter.DELETE("/:id", r.handler.DeleteUserByID)
 	}
 
+}
+
+func LoadUserRouter(r *gin.Engine) {
+	repo := GetUserRepository(common.DBInstance)
+	service := GetUserService(repo)
+	handler := GetUserHandler(service)
+	router := GetUserRouter(handler)
+
+	router.RegisterRouter(r)
 }

@@ -10,7 +10,7 @@ import (
 
 var DBInstance *gorm.DB
 
-func Init() {
+func InitDB() {
 	url := os.Getenv("DATABASE_URL")
 	if url == "" {
 		log.Fatal("DATABASE_URL not set")

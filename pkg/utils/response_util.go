@@ -9,12 +9,16 @@ import (
 
 func JSONResponse(c *gin.Context, status int, success bool,
 	data interface{}, err error, msg string) {
+	var errMsg string
+	if err != nil {
+		errMsg = err.Error()
+	}
 	resp := common.Response{
 		Code:    status,
 		Success: success,
 		Message: msg,
 		Data:    data,
-		Error:   err.Error(),
+		Error:   errMsg,
 	}
 	c.JSON(status, resp)
 }
