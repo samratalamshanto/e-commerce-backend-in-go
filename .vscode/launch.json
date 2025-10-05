@@ -12,7 +12,20 @@
             "program": "${workspaceFolder}/cmd/server/main.go",
             "envFile": "${workspaceFolder}/.env",
             "cwd": "${workspaceFolder}",
-            "args": []
+            "args": [],
+            "buildFlags": [],
+            "output": "${workspaceFolder}/bin/debug_server.exe",
+            "showLog": true,
+            "trace": "verbose",
+            "dlvFlags": [
+                "--check-go-version=false"
+            ],
+            "env": {
+                "GIN_MODE": "debug"
+            }
         }
-    ]
+    ],
+    "go.delveConfig": {
+        "removeTmpFile": true
+    }
 }

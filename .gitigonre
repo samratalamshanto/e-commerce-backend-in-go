@@ -43,3 +43,6 @@ uploads/*
 # Coverage / test reports
 coverage.*
 *.coverprofile
+
+
+*_debug_bin*
